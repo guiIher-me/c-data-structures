@@ -41,7 +41,7 @@ bool empty(Node node) {
 
 // Allocate a new node 
 Node node_alloc() {
-	Node node = (Node) malloc(sizeof(Node));
+	Node node = (Node) malloc(sizeof(struct node));
 	
 	if(empty(node)) {
 		printf("[ERR] Not enough memory");
@@ -164,7 +164,7 @@ void assertNotEmpty(Queue queue) {
 
 // Creates a new Queue
 Queue new_queue() {
-	Queue queue = (Queue) malloc(sizeof(Queue));
+	Queue queue = (Queue) malloc(sizeof(struct queue));
 
 	if(!isInit(queue)) {
 		printf("[ERR] Not enough memory");
@@ -254,5 +254,6 @@ int main() {
 	print(queue);
 	
 	clear(queue);
+	system("pause");
 	return 0;
 }

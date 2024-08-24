@@ -52,7 +52,7 @@ bool empty(Node node) {
 }
 
 Node new_node(Data data) {
-	Node node = (Node) malloc(sizeof(Node));
+	Node node = (Node) malloc(sizeof(struct node));
 	
 	if(empty(node))
 		error(ERR_NO_MEMORY);
@@ -104,13 +104,13 @@ Node rotateToRight(Node node) {
 }
 
 Node rotateToLeftAndRight(Node node) {
-	//printf("ROTACAO PRA ESQUERDA/DIREITA\n");
+	//printf("ROTACAO PARA ESQUERDA/DIREITA\n");
 	node->left = rotateToLeft(node->left);
 	return rotateToRight(node);
 }
 
 Node rotateToRightAndLeft(Node node) {
-	//printf("ROTACAO PRA DIREITA/ESQUERDA\n");
+	//printf("ROTACAO PARA DIREITA/ESQUERDA\n");
 	node->right = rotateToRight(node->right);
 	return rotateToLeft(node);
 }
@@ -172,7 +172,7 @@ bool isEmpty(Tree tree) {
 }
 
 Tree new_tree() {
-	Tree tree = (Tree) malloc(sizeof(Tree));
+	Tree tree = (Tree) malloc(sizeof(struct tree));
 	
 	if(isEmpty(tree))
 		error(ERR_NO_MEMORY);
@@ -188,8 +188,8 @@ void insert(Tree tree, Data data) {
 }
 
 void print(Tree tree) {
-	printf("\n");
 	print_node(tree->root);
+	printf("\n");
 }
 
 //-----------------------------------------------------------
@@ -203,5 +203,6 @@ int main() {
 	insert(tree, 2);
 	print(tree);
 	
+	system("pause");
 	return 0;
 }

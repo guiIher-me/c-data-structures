@@ -41,7 +41,7 @@ bool empty(Node node) {
 
 // Allocate a new node 
 Node node_alloc() {
-	Node node = (Node) malloc(sizeof(Node));
+	Node node = (Node) malloc(sizeof(struct node));
 	
 	if(empty(node)) {
 		printf("[ERR] Not enough memory");
@@ -164,7 +164,7 @@ void assertNotEmpty(LinkedList list) {
 
 // Creates a new linkedList
 LinkedList new_list() {
-	LinkedList list = (LinkedList) malloc(sizeof(LinkedList));
+	LinkedList list = (LinkedList) malloc(sizeof(struct linkedlist));
 
 	if(!isInit(list)) {
 		printf("[ERR] Not enough memory");
@@ -296,5 +296,6 @@ int main() {
 	print(list);
 	
 	clear(list);
+	system("pause");
 	return 0;
 }

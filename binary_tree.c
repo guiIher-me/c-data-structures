@@ -44,7 +44,7 @@ bool empty(Node node) {
 }
 
 Node new_node(Data data) {
-	Node node = (Node) malloc(sizeof(Node));
+	Node node = (Node) malloc(sizeof(struct node));
 	
 	if(empty(node))
 		error(ERR_NO_MEMORY);
@@ -128,10 +128,7 @@ Node search_node(Node current, Data data, Node *parent) {
 	if(data < current->data)
 		return search_node(current->left , data, parent);
 	
-	if(data > current->data)
-		return search_node(current->right, data, parent);
-	
-	return NULL; //dead code
+	return search_node(current->right, data, parent);
 }
 
 		
@@ -198,7 +195,7 @@ bool isEmpty(Tree tree) {
 }
 
 Tree new_tree() {
-	Tree tree = (Tree) malloc(sizeof(Tree));
+	Tree tree = (Tree) malloc(sizeof(struct tree));
 	
 	if(isEmpty(tree))
 		error(ERR_NO_MEMORY);
@@ -221,8 +218,8 @@ int count(Tree tree) {
 }
 
 void print(Tree tree) {
-	printf("\n");
 	print_node(tree->root);
+	printf("\n");
 }
 
 void drop(Tree tree, Data data) {
@@ -249,6 +246,7 @@ int main() {
 	drop(tree, 8);
 	
 	print(tree);
-		
+	
+	system("pause");
 	return 0;
 }
